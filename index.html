@@ -11,7 +11,6 @@
       color-scheme: dark;
       --background: #07111f;
       --surface: #101d2e;
-      --surface-raised: #14243a;
       --border: #2b3d54;
       --text: #f2f7fc;
       --muted: #b2c0d0;
@@ -22,7 +21,10 @@
 
     * { box-sizing: border-box; }
 
-    html { min-width: 320px; background: var(--background); }
+    html {
+      min-width: 320px;
+      background: var(--background);
+    }
 
     body {
       margin: 0;
@@ -77,7 +79,10 @@
       background: rgba(18, 207, 243, .1);
     }
 
-    .brand-mark svg { width: 22px; height: 22px; }
+    .brand-mark svg {
+      width: 22px;
+      height: 22px;
+    }
 
     .top-link {
       color: var(--muted);
@@ -147,7 +152,10 @@
       transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
     }
 
-    .button:hover { border-color: var(--accent); transform: translateY(-1px); }
+    .button:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
 
     .button-primary {
       border-color: var(--accent);
@@ -199,7 +207,42 @@
       text-align: center;
     }
 
-    .equation sub, .equation sup { font-size: .68em; }
+    .equation sub,
+    .equation sup {
+      font-size: .68em;
+    }
+
+    .radical {
+      position: relative;
+      display: inline-block;
+      padding-left: .8em;
+      vertical-align: -.12em;
+      white-space: nowrap;
+    }
+
+    .radical svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: .82em;
+      height: 1.15em;
+      overflow: visible;
+    }
+
+    .radical::after {
+      position: absolute;
+      top: .096em;
+      right: 0;
+      left: .79em;
+      border-top: 2px solid currentColor;
+      content: "";
+    }
+
+    .radicand {
+      position: relative;
+      display: inline-block;
+      padding: .11em .04em 0;
+    }
 
     .equation-note {
       position: relative;
@@ -250,7 +293,12 @@
       gap: 12px 24px;
     }
 
-    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
     .footer-links a { text-underline-offset: 3px; }
 
     @media (max-width: 760px) {
@@ -260,7 +308,9 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
@@ -272,12 +322,17 @@
     <a class="brand" href="/" aria-label="CALQENTRA home">
       <span class="brand-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none">
-          <path d="M13.5 2.8 5.8 13h5.3l-.7 8.2L18.2 11h-5.3l.6-8.2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M13.5 2.8 5.8 13h5.3l-.7 8.2L18.2 11h-5.3l.6-8.2Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"/>
         </svg>
       </span>
       <span>CALQENTRA</span>
     </a>
-    <a class="top-link" href="https://trippletucker.github.io/calqentra-privacy/">Privacy &amp; account information</a>
+    <a class="top-link" href="https://trippletucker.github.io/calqentra-privacy/">
+      Privacy &amp; account information
+    </a>
   </header>
 
   <main class="shell">
@@ -301,7 +356,18 @@
       <aside class="equation-card" aria-label="Example engineering equation">
         <p class="card-label">A clearer view of the working</p>
         <p class="equation">
-          Q = <span aria-label="square root of S squared minus P squared">√<span style="text-decoration: overline; text-decoration-thickness: 1px;">S<sup>2</sup> − P<sup>2</sup></span></span>
+          Q =
+          <span class="radical" role="math" aria-label="square root of S squared minus P squared">
+            <svg viewBox="0 0 32 48" aria-hidden="true" focusable="false">
+              <path d="M1 23h7l7 20L27 4h5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="square"
+                    stroke-linejoin="miter"/>
+            </svg>
+            <span class="radicand">S<sup>2</sup> − P<sup>2</sup></span>
+          </span>
         </p>
         <p class="equation-note">Equations, values, and units—together in one place.</p>
       </aside>
@@ -327,7 +393,9 @@
     <div class="shell footer-inner">
       <span>© CALQENTRA</span>
       <nav class="footer-links" aria-label="Legal and technical links">
-        <a href="https://trippletucker.github.io/calqentra-privacy/">Privacy policy &amp; account deletion</a>
+        <a href="https://trippletucker.github.io/calqentra-privacy/">
+          Privacy policy &amp; account deletion
+        </a>
         <a href="/app-ads.txt">app-ads.txt</a>
       </nav>
     </div>
